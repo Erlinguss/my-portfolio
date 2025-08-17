@@ -1,20 +1,68 @@
-
 @import "tailwindcss";
 
-:root {
-  --foreground: #0f172a; /* slate-900 */
+/* ===================== Base ===================== */
+:root { --foreground:#0f172a; } /* slate-900 */
+body { color: var(--foreground); }
+html { scroll-behavior:smooth; }
+
+/* Focus outlines */
+:focus-visible {
+  outline: 2px solid #2563eb; /* blue-600 */
+  outline-offset: 2px;
+  border-radius: .5rem;
 }
 
-body {
-  color: var(--foreground);
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ===================== Orbit Chip ===================== */
+
+/* If you already have this, keep it */
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50%      { transform: translate3d(0,-6px,0); }
+}
+
+/* Tiny orbit chips */
+.orbit-chip {
+  position: absolute;
+  /* belt & suspenders: declare animation here too */
+  animation: float-slow 5.5s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0,0,0); /* ensure GPU layer */
+  z-index: 1;
+}
+
+/* inner visual */
+.orbit-chip-inner {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(15,23,42,.08);
+  box-shadow:
+    0 12px 24px rgba(2,6,23,.10),
+    0 4px 10px rgba(2,6,23,.06);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .orbit-chip-inner { width: 52px; height: 52px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-chip { animation: none !important; }
 }
 
 @keyframes float-slow {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0%   { transform: translate3d( 0px,  0px, 0); }
+  25%  { transform: translate3d( 4px, -5px, 0); }
+  50%  { transform: translate3d(-3px,  3px, 0); }
+  75%  { transform: translate3d( 3px,  2px, 0); }
+  100% { transform: translate3d( 0px,  0px, 0); }
 }
 
-.animate-float-slow {
-  animation: float-slow 6s ease-in-out infinite;
-}
