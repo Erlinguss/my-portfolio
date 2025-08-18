@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
+import Footer from "./Footer";
 
 import TechStack from "./TechStack";
 
@@ -42,13 +43,7 @@ export default function Hero() {
               >
                 Email Me
               </a>
-              {/* <a
-                href="/Erling_Munguia_CV.pdf"
-                download
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-              >
-                Download CV
-              </a> */}
+              
               <a
   href="/api/cv?v=1" // bump v= when you upload a new file to bust caches
   className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
@@ -88,6 +83,7 @@ export default function Hero() {
 
       {/* Tech stack cards */}
       <TechStack />
+      <Footer />
     </>
   );
 }
