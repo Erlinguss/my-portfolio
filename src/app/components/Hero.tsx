@@ -42,13 +42,21 @@ export default function Hero() {
               >
                 Email Me
               </a>
-              <a
+              {/* <a
                 href="/Erling_Munguia_CV.pdf"
                 download
                 className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
               >
                 Download CV
-              </a>
+              </a> */}
+              <a
+  href="/api/cv?v=1" // bump v= when you upload a new file to bust caches
+  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+  aria-label="Download my CV as PDF"
+>
+  Download CV
+</a>
+
             </div>
           </div>
 
