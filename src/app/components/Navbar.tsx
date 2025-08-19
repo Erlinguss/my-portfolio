@@ -4,12 +4,12 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
+import ContactLink from "./ContactLink"; 
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
 
-  // close on ESC / outside click
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
@@ -18,7 +18,10 @@ export default function Navbar() {
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("mousedown", onClick);
-    return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("mousedown", onClick); };
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
   }, [open]);
 
   return (
@@ -26,7 +29,9 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-4" aria-label="Primary">
         <div className="flex items-center justify-between bg-white/80 backdrop-blur border border-slate-200 rounded-2xl shadow-sm px-5 py-3">
           <Link href="#about" className="flex items-center gap-2" aria-label="Go to About">
-            <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-lg shadow-md">EM</div>
+            <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-lg shadow-md">
+              EM
+            </div>
           </Link>
 
           {/* Desktop */}
@@ -34,7 +39,10 @@ export default function Navbar() {
             <li><a href="#about" className="hover:text-slate-900">About</a></li>
             <li><a href="#projects" className="hover:text-slate-900">Projects</a></li>
             <li><a href="#skills" className="hover:text-slate-900">Skills</a></li>
-            <li><a href="#contact" className="hover:text-slate-900">Contact</a></li>
+          
+            <li>
+              <ContactLink className="hover:text-slate-900">Contact</ContactLink>
+            </li>
           </ul>
 
           <div className="flex items-center gap-2">
@@ -51,12 +59,13 @@ export default function Navbar() {
             <button
               className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200"
               aria-label="Open menu"
-             // aria-expanded={String(open)}
               aria-controls="mobile-menu"
               onClick={() => setOpen(v => !v)}
             >
               <span className="sr-only">Menu</span>
-              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
             </button>
           </div>
         </div>
@@ -68,7 +77,15 @@ export default function Navbar() {
               <li><a className="block px-5 py-3 hover:bg-slate-50" href="#about" onClick={()=>setOpen(false)}>About</a></li>
               <li><a className="block px-5 py-3 hover:bg-slate-50" href="#projects" onClick={()=>setOpen(false)}>Projects</a></li>
               <li><a className="block px-5 py-3 hover:bg-slate-50" href="#skills" onClick={()=>setOpen(false)}>Skills</a></li>
-              <li><a className="block px-5 py-3 hover:bg-slate-50" href="#contact" onClick={()=>setOpen(false)}>Contact</a></li>
+            
+              <li>
+                <ContactLink
+                  className="block px-5 py-3 hover:bg-slate-50"
+                //  onClick={() => setOpen(false)}
+                >
+                  Contact
+                </ContactLink>
+              </li>
             </ul>
           </div>
         )}

@@ -7,6 +7,7 @@ import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
 import Footer from "./Footer";
 
 import TechStack from "./TechStack";
+import ContactButton from "./ContactLink";
 
 export default function Hero() {
   return (
@@ -29,30 +30,30 @@ export default function Hero() {
               I ship accessible, performant web apps with React/Next.js, strong UX,
               and clean, maintainable code.
             </p>
+<div className="mt-8 flex flex-wrap gap-3">
+  <a
+    href="#projects"
+    className="inline-flex items-center justify-center rounded-lg bg-blue-600 text-white px-5 py-3 text-sm font-semibold hover:bg-blue-700 shadow-sm"
+  >
+    View Projects
+  </a>
 
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center rounded-xl bg-blue-600 text-white px-5 py-3 text-sm font-semibold hover:bg-blue-700"
-              >
-                View Projects
-              </a>
-              <a
-                href="mailto:munguia.erling4@gmail.com"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-              >
-                Email Me
-              </a>
-              
-              <a
-  href="/api/cv?v=1" // bump v= when you upload a new file to bust caches
-  className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-  aria-label="Download my CV as PDF"
->
-  Download CV
-</a>
 
-            </div>
+  <a
+    href="#contact"
+    className=""
+  >
+ <ContactButton  className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50">Contact</ContactButton>
+  </a>
+
+  <a
+    href="/api/cv?v=1"
+    className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
+  >
+    Download CV
+  </a>
+</div>
+
           </div>
 
           {/* Right — image + tiny orbit chips */}
@@ -82,9 +83,10 @@ export default function Hero() {
       </section>
 
       {/* Tech stack cards */}
-      <TechStack />
-      <Footer />
-    </>
+    
+        <TechStack />
+        <Footer />
+      </>
   );
 }
 

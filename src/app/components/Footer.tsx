@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
+import ContactButton from "./ContactLink";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -67,7 +68,8 @@ export default function Footer() {
                   <li><Link className="hover:text-white" href="#projects">Projects</Link></li>
                   <li><Link className="hover:text-white" href="#skills">Skills</Link></li>
                   <li><a className="hover:text-white" href="/api/cv?v=1">Download CV</a></li>
-                  <li><a className="hover:text-white" href="mailto:munguia.erling4@gmail.com">Contact</a></li>
+                 <li> <ContactButton className="hover:text-white">Contact</ContactButton></li>
+
                 </ul>
               </div>
 
