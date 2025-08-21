@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 export default function ContactModal({
   children,
   onClose,
-  title = "Contact",
+  title = "Get in touch",
 }: {
   children: React.ReactNode;
   onClose: () => void;

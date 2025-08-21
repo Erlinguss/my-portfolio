@@ -1,5 +1,4 @@
 
-// Navbar.tsx
 "use client";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
@@ -39,10 +38,10 @@ export default function Navbar() {
             <li><a href="#about" className="hover:text-slate-900">About</a></li>
             <li><a href="#projects" className="hover:text-slate-900">Projects</a></li>
             <li><a href="#skills" className="hover:text-slate-900">Skills</a></li>
-          
+{/*           
             <li>
               <ContactLink className="hover:text-slate-900">Contact</ContactLink>
-            </li>
+            </li> */}
           </ul>
 
           <div className="flex items-center gap-2">
