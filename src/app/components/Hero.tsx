@@ -18,10 +18,20 @@ export default function Hero() {
               Hello there <span className="inline-block">👋</span>
             </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+            {/* <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
               I’m <span className="text-slate-900">Erling Munguia</span>,<br />
               a <span className="text-blue-600">Web Developer</span>
-            </h1>
+            </h1> */}
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+  I’m <span className="text-slate-900">Erling Munguia</span>,<br />
+  a{" "}
+<span className="shimmer bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+  Web Developer
+</span>
+
+</h1>
+
 
             <p className="mt-5 text-slate-600 text-lg leading-relaxed max-w-xl">
               I ship accessible, performant web apps with React/Next.js, strong UX,

@@ -36,7 +36,7 @@ export default function ContactLink({
       </a>
 
       {open && (
-        <ContactModal onClose={() => setOpen(false)} title="Contact">
+        <ContactModal onClose={() => setOpen(false)} title="Get in touch">
           <ContactForm />
         </ContactModal>
       )}

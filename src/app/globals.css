@@ -66,3 +66,19 @@ html { scroll-behavior:smooth; }
   100% { transform: translate3d( 0px,  0px, 0); }
 }
 
+
+/* ============= Web Developer Title ================== */
+
+@keyframes shine {
+  from { background-position: 200% center; }
+  to   { background-position: -200% center; }
+}
+
+.shimmer {
+  background-size: 200% auto;
+  transition: background-position 0.3s ease;
+}
+
+.shimmer:hover {
+  animation: shine 2s linear infinite;
+}

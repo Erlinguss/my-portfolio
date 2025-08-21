@@ -19,12 +19,20 @@ export default function Footer() {
           <div className="grid gap-10 md:grid-cols-2">
             {/* LEFT — headline + contact */}
             <section aria-labelledby="footer-title">
-              <h2
+              {/* <h2
                 id="footer-title"
                 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-blue-400"
               >
                 Let’s build reliable, scalable apps
-              </h2>
+              </h2> */}
+
+<h2
+  id="footer-title"
+  className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-100"
+>
+  Let’s build <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">reliable, scalable apps</span>
+</h2>
+
               <p className="mt-3 text-slate-400 max-w-[46ch]">
                 Full-stack developer with strong QA automation background.
                 Focused on building clean code, scalable systems, and delivering

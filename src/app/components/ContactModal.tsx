@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 export default function ContactModal({
   children,
   onClose,
-  title = "Get in touch",
+  title = "Get in touch", 
 }: {
   children: React.ReactNode;
   onClose: () => void;
@@ -13,7 +13,6 @@ export default function ContactModal({
 }) {
   const panelRef = useRef<HTMLDivElement | null>(null);
 
-  // ESC to close + focus trap
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -37,7 +36,6 @@ export default function ContactModal({
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  // lock background scroll
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -55,15 +53,21 @@ export default function ContactModal({
     >
       <div
         ref={panelRef}
-        className="w-full max-w-xl rounded-2xl bg-[#0b0f19] text-slate-200 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,.35)]"
+        className="relative w-full max-w-xl overflow-hidden rounded-2xl bg-[#0b0f19] text-slate-200 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,.35)]"
       >
-        {/* gradient header */}
-        <div className="h-1 w-full rounded-t-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600" />
+
+       <div className="h-px w-full rounded-t-2xl bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600" />
+
+
         <div className="p-6">
           <div className="flex items-center justify-between">
-            <h3 id="contact-modal-title" className="text-lg font-bold tracking-tight text-blue-300">
-              {title}
-            </h3>
+            <h3
+  id="contact-modal-title"
+  className="text-3xl font-serif font-bold tracking-tight text-slate-100"
+>
+  Get <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">in touch</span>
+</h3>
+
             <button
               type="button"
               onClick={onClose}
@@ -73,6 +77,7 @@ export default function ContactModal({
               ✕
             </button>
           </div>
+
           <div className="mt-4">{children}</div>
         </div>
       </div>
