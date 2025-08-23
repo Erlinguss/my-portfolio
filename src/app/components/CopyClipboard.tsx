@@ -10,7 +10,7 @@ type Props = {
   size?: number;         
 };
 
-export default function Copy({ value, className = "", size = 16 }: Props) {
+export default function CopyClipboard({ value, className = "", size = 16 }: Props) {
   const [copied, setCopied] = useState(false);
 
   async function copy() {

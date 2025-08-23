@@ -82,3 +82,14 @@ html { scroll-behavior:smooth; }
 .shimmer:hover {
   animation: shine 2s linear infinite;
 }
+
+
+
+/* hide horizontal scrollbar for the carousel */
+.hide-scrollbar {
+  -ms-overflow-style: none;      /* IE/Edge */
+  scrollbar-width: none;         /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;                 /* Chrome/Safari */
+}

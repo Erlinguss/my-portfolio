@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
-import Copy from "./Copy";
+import Copy from "./CopyClipboard";
 import ContactLink from "./ContactLink";
 
 export default function Footer() {
@@ -170,7 +170,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 hover:bg-white/[0.08] text-slate-200 text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               aria-label="Back to top"
             >
-              ↑ Back to Top
+              ↑ 
             </a>
           </div>
         </div>
