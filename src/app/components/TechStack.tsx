@@ -249,7 +249,7 @@ export default function TechStack() {
       } else {
         el.scrollTo({ left: next, behavior: "smooth" });
       }
-    }, 4000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [isHovered, CARD_WIDTH]);

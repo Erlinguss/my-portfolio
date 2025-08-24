@@ -7,6 +7,7 @@ import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
 import TechStack from "./TechStack";
 import Footer from "./Footer";
 import ContactLink from "./ContactLink";
+import { Mail, Download, Globe } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -18,11 +19,6 @@ export default function Hero() {
               Hello there <span className="inline-block">👋</span>
             </p>
 
-            {/* <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              I’m <span className="text-slate-900">Erling Munguia</span>,<br />
-              a <span className="text-blue-600">Web Developer</span>
-            </h1> */}
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
   I’m <span className="text-slate-900">Erling Munguia</span>,<br />
   a{" "}
@@ -31,31 +27,38 @@ export default function Hero() {
 </span>
 
 </h1>
-
-
             <p className="mt-5 text-slate-600 text-lg leading-relaxed max-w-xl">
-              I ship accessible, performant web apps with React/Next.js, strong UX,
-              and clean, maintainable code.
+              I design and engineer end-to-end systems — from{" "}
+              <strong>React UIs</strong> to <strong>.NET microservices</strong>, 
+              databases, and <strong>automation pipelines</strong> that scale with confidence.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#projects"
-                className="inline-flex items-center justify-center rounded-lg bg-blue-600 text-white px-5 py-3 text-sm font-semibold hover:bg-blue-700 shadow-sm"
-              >
-                View Projects
-              </a>
 
-              <ContactLink className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50">
-                Contact
+            <a
+              href="/ErlingEduardoMunguiaUrbinaCV.pdf"
+              className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-[14px] font-semibold text-white shadow hover:opacity-90"
+            >
+              <Download className="h-4 w-4" />
+              Download CV
+            </a>
+
+              <ContactLink className="inline-flex items-center gap-2 rounded-xl border border-slate-300 
+          bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50">
+               <Mail className="h-4 w-4" />  Contact
               </ContactLink>
 
-              <a
+              {/* <a
                 href="/api/cv?v=1"
                 className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
               >
                 Download CV
-              </a>
+              </a> */}
+
+
+
+
+
             </div>
           </div>
 
@@ -83,7 +86,7 @@ export default function Hero() {
       </section>
 
       <TechStack />
-      <Footer />
+    
     </>
   );
 }

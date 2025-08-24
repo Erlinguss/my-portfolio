@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { FiMapPin } from "react-icons/fi";
 import Copy from "./CopyClipboard";
 import ContactLink from "./ContactLink";
+import { Download } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -107,7 +108,7 @@ export default function Footer() {
                   <li>
                     <a
                       className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded"
-                      href="/api/cv?v=1"
+                         href="/ErlingEduardoMunguiaUrbinaCV.pdf"
                     >
                       Download CV
                     </a>

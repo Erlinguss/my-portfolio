@@ -93,3 +93,7 @@ html { scroll-behavior:smooth; }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;                 /* Chrome/Safari */
 }
+
+html {
+  scroll-behavior: smooth;
+}

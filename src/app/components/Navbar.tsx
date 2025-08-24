@@ -2,14 +2,21 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaLinkedin } from "react-icons/fa";
 
-const sections = ["about", "projects", "skills"];
+const links = [
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  // Skills is on the home page; link to the hash on "/"
+  { label: "Skills", href: "/#skills" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   // close on ESC / outside click
   useEffect(() => {
@@ -35,6 +42,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // helper for active state (pathname doesn't include hash)
+  const isActive = (href: string) => {
+    if (href === "/#skills") return pathname === "/";
+    return pathname === href;
+  };
+
   return (
     <header className="sticky top-0 z-50">
       <nav
@@ -50,27 +63,25 @@ export default function Navbar() {
               : "bg-white/80 backdrop-blur border-slate-200 py-3"
           } px-5`}
         >
-          {/* Logo */}
-          <Link
-            href="#about"
-            className="flex items-center gap-2"
-            aria-label="Go to About"
-          >
+          {/* Logo -> Go home */}
+          <Link href="/" aria-label="Go to Home" className="flex items-center gap-2">
             <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-lg shadow-md">
               EM
             </div>
           </Link>
 
           {/* Desktop links */}
-          <ul className="hidden md:flex items-center gap-8 text-sm text-slate-600 font-medium">
-            {sections.map((id) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className="hover:text-slate-900 transition-colors"
+          <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`transition-colors ${
+                    isActive(link.href) ? "text-slate-900" : "text-slate-600 hover:text-slate-900"
+                  }`}
                 >
-                  {id.charAt(0).toUpperCase() + id.slice(1)}
-                </a>
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>
@@ -92,21 +103,10 @@ export default function Navbar() {
               className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200"
               aria-label="Open menu"
               aria-controls="mobile-menu"
-             // aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M4 7h16M4 12h16M4 17h16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </button>
           </div>
@@ -120,15 +120,17 @@ export default function Navbar() {
             className="md:hidden mt-2 bg-white border border-slate-200 rounded-2xl shadow-lg"
           >
             <ul className="flex flex-col py-2 text-slate-700">
-              {sections.map((id) => (
-                <li key={id}>
-                  <a
-                    href={`#${id}`}
-                    className="block px-5 py-3 hover:bg-slate-50"
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block px-5 py-3 hover:bg-slate-50 ${
+                      isActive(link.href) ? "text-slate-900" : "text-slate-700"
+                    }`}
                     onClick={() => setOpen(false)}
                   >
-                    {id.charAt(0).toUpperCase() + id.slice(1)}
-                  </a>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
