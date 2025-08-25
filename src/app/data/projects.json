@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Portfolio Website",
+    "description": "A modern developer portfolio built with Next.js, TailwindCSS, and Framer Motion. Integrated with MongoDB for dynamic content like timeline and projects.",
+    "stack": ["Next.js", "TailwindCSS", "Framer Motion", "MongoDB"],
+    "github": "https://github.com/Erlinguss/my-portfolio",
+    "live": "https://yourportfolio.vercel.app/",
+    "image": "../projects/portfolio.png"
+  },
+  {
+    "title": "Education Course Management API",
+    "description": "A scalable backend API to manage courses, instructors, and schedules. Secure role-based authentication with JWT, deployed to Azure with MySQL integration.",
+    "stack": ["C#", ".NET 8", "Azure", "MySQL", "Swagger"],
+    "github": "https://github.com/Erlinguss/EduCourseManagementAPI",
+    "live": null,
+    "image": "../projects/edumanagement.png"
+  },
+  {
+    "title": "MoodSync – Wellness Assistant",
+    "description": "A personalized mental wellness & lifestyle assistant app. Integrates Google Maps, Weather APIs, and Geolocation. Includes Playwright automation tests.",
+    "stack": ["C#", ".NET", "Entity Framework", "MySQL", "Playwright"],
+    "github": "https://github.com/Erlinguss/SOA_CA1_MoodSync",
+    "live": null,
+    "image": "../projects/mood.png"
+  }
+]

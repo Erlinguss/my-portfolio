@@ -56,9 +56,6 @@ export default function Hero() {
               </a> */}
 
 
-
-
-
             </div>
           </div>
 
