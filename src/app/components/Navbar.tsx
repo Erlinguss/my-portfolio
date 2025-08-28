@@ -6,10 +6,11 @@ import { usePathname } from "next/navigation";
 import { FaLinkedin } from "react-icons/fa";
 
 const links = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
-  // Skills is on the home page; link to the hash on "/"
   { label: "Skills", href: "/#skills" },
+
 ];
 
 export default function Navbar() {

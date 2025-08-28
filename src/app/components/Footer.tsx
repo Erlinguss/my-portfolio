@@ -91,17 +91,17 @@ export default function Footer() {
                 <h3 className="text-sm font-bold text-slate-300">Quick Links</h3>
                 <ul className="mt-3 space-y-2 text-sm">
                   <li>
-                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="#about">
+                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="/about">
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="#projects">
+                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="/projects">
                       Projects
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="#skills">
+                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="/#skills">
                       Skills
                     </Link>
                   </li>

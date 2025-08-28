@@ -5,7 +5,6 @@ import Image from "next/image";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiTailwindcss } from "react-icons/si";
 import TechStack from "./TechStack";
-import Footer from "./Footer";
 import ContactLink from "./ContactLink";
 import { Mail, Download, Globe } from "lucide-react";
 

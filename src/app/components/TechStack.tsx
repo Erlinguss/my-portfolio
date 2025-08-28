@@ -36,7 +36,7 @@ function Pill({ children }: { children: React.ReactNode }) {
 /* ---------- Section Title ---------- */
 function SectionTitle() {
   return (
-    <div className="text-center mb-10">
+    <div id="skills" className="text-center mb-10">
       <h2 className="text-[34px] sm:text-[40px] font-extrabold tracking-tight text-slate-900">
         Core Skills &{" "}
         <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
