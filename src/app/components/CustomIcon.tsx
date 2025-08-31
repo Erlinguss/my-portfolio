@@ -3,17 +3,16 @@
 import Image from "next/image";
 
 type CustomIconProps = {
-  src: string;     
-  alt: string;     
-  size?: number;   
+  src: string;
+  alt: string;
+  size?: number;
   className?: string;
 };
 
 export default function CustomIcon({
   src,
   alt,
-  size = 20
-  ,
+  size = 20,
   className = "",
 }: CustomIconProps) {
   return (

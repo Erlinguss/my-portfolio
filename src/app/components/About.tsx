@@ -2,9 +2,16 @@
 
 import { motion } from "framer-motion";
 import {
-  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiFigma,
-  SiDotnet, SiDocker, SiMysql, SiMongodb,
-  SiGithubactions
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiFigma,
+  SiDotnet,
+  SiDocker,
+  SiMysql,
+  SiMongodb,
+  SiGithubactions,
 } from "react-icons/si";
 import { Mail, Download, GitBranch } from "lucide-react";
 import CountUp from "react-countup";
@@ -28,77 +35,81 @@ function Chip({ children }: { children: React.ReactNode }) {
 export default function AboutPage() {
   return (
     <section className="relative mx-auto max-w-7xl px-6 py-28">
-     
-{/* ---------- ABOUT HERO (Premium Style) ---------- */}
-<section className="relative mb-32">
-  {/* Background gradient accent */}
-  <div className="absolute inset-0 -z-10">
-    <div className="absolute left-1/4 top-10 w-[800px] h-[800px] bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
-  </div>
-
-  <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
-    {/* Left - Text */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="text-center lg:text-left space-y-6 max-w-2xl"
-    >
-  <h1 className="text-6xl font-extrabold tracking-tight leading-[1.15] bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-  Erling Munguia
-</h1>
-
-      <p className="text-sm uppercase tracking-[0.3em] text-slate-500">
-        Full-Stack Engineering & Automation
-      </p>
-      <p className="text-lg leading-relaxed text-slate-700">
-        Designing and delivering robust software solutions — combining{" "}
-        <strong>front-end elegance</strong>,{" "}
-        <strong>scalable back-end systems</strong>, and{" "}
-        <strong>QA automation</strong> into products that inspire confidence.
-      </p>
-
-      {/* Mini Stats Row */}
-      <div className="grid grid-cols-3 gap-6 pt-6">
-        <div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm">
-          <p className="text-2xl font-bold text-indigo-600">20+</p>
-          <p className="text-xs text-slate-600">Projects</p>
+      {/* ---------- ABOUT HERO ---------- */}
+      <section className="relative mb-32">
+        {/* Background gradient accent */}
+        <div className="absolute inset-0 -z-10">
+          <div
+            className="absolute left-1/2 -translate-x-1/2 top-10 
+  w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] 
+  lg:w-[800px] lg:h-[800px] 
+  bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 
+  rounded-full blur-3xl"
+          ></div>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm">
-          <p className="text-2xl font-bold text-indigo-600">3+</p>
-          <p className="text-xs text-slate-600">Years Exp</p>
+
+        <div className="grid lg:grid-cols-2 items-center gap-12 lg:gap-20">
+          {/* Left - Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center lg:text-left space-y-6 max-w-2xl"
+          >
+            <h1 className="text-6xl font-extrabold tracking-tight leading-[1.15] bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Erling Munguia
+            </h1>
+
+            <p className="text-sm uppercase tracking-[0.3em] text-slate-500">
+              Full-Stack Engineering & Automation
+            </p>
+            <p className="text-lg leading-relaxed text-slate-700">
+              Designing and delivering robust software solutions — combining{" "}
+              <strong>front-end elegance</strong>,{" "}
+              <strong>scalable back-end systems</strong>, and{" "}
+              <strong>QA automation</strong> into products that inspire
+              confidence.
+            </p>
+
+            {/* Mini Stats Row */}
+            <div className="grid grid-cols-3 gap-6 pt-6">
+              <div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm">
+                <p className="text-2xl font-bold text-indigo-600">20+</p>
+                <p className="text-xs text-slate-600">Projects</p>
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm">
+                <p className="text-2xl font-bold text-indigo-600">3+</p>
+                <p className="text-xs text-slate-600">Years Exp</p>
+              </div>
+              <div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm">
+                <p className="text-2xl font-bold text-indigo-600">CI/CD</p>
+                <p className="text-xs text-slate-600">Automation</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right - Animation */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative flex justify-center lg:justify-end"
+          >
+            {/* Glow under animation */}
+            {/* <div className="absolute w-[650px] h-[650px] rounded-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>*/}
+            <div className="absolute w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] lg:w-[650px] lg:h-[650px] rounded-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
+
+            <Lottie
+              loop
+              play
+              animationData={codingAnimation}
+              className="w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] lg:w-[650px] lg:h-[650px]"
+            />
+          </motion.div>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm p-4 shadow-sm">
-          <p className="text-2xl font-bold text-indigo-600">CI/CD</p>
-          <p className="text-xs text-slate-600">Automation</p>
-        </div>
-      </div>
-    </motion.div>
-
-    {/* Right - Animation */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="relative flex justify-center lg:justify-end"
-    >
-      {/* Glow under animation */}
-      <div className="absolute w-[650px] h-[650px] rounded-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
-
-      <Lottie
-        loop
-        play
-        animationData={codingAnimation}
-        style={{ width: 650, height: 650 }}
-      />
-    </motion.div>
-  </div>
-
-
-</section>
-
+      </section>
 
       {/* ---------- SKILLS GRID ---------- */}
       <div className="grid gap-6 lg:grid-cols-3 mb-32">
@@ -114,11 +125,21 @@ export default function AboutPage() {
             React, Next.js, TypeScript, Tailwind, Figma
           </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Chip><SiReact /> React</Chip>
-            <Chip><SiNextdotjs /> Next.js</Chip>
-            <Chip><SiTypescript /> TS</Chip>
-            <Chip><SiTailwindcss /> Tailwind</Chip>
-            <Chip><SiFigma /> Figma</Chip>
+            <Chip>
+              <SiReact /> React
+            </Chip>
+            <Chip>
+              <SiNextdotjs /> Next.js
+            </Chip>
+            <Chip>
+              <SiTypescript /> TS
+            </Chip>
+            <Chip>
+              <SiTailwindcss /> Tailwind
+            </Chip>
+            <Chip>
+              <SiFigma /> Figma
+            </Chip>
           </div>
         </motion.div>
 
@@ -131,12 +152,22 @@ export default function AboutPage() {
           className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg"
         >
           <h4 className="font-bold text-slate-900">Backend & Microservices</h4>
-          <p className="mt-1 text-sm text-slate-600">C#, .NET, Docker, SQL, MongoDB</p>
+          <p className="mt-1 text-sm text-slate-600">
+            C#, .NET, Docker, SQL, MongoDB
+          </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Chip><SiDotnet /> .NET</Chip>
-            <Chip><SiDocker /> Docker</Chip>
-            <Chip><SiMysql /> MySQL</Chip>
-            <Chip><SiMongodb /> MongoDB</Chip>
+            <Chip>
+              <SiDotnet /> .NET
+            </Chip>
+            <Chip>
+              <SiDocker /> Docker
+            </Chip>
+            <Chip>
+              <SiMysql /> MySQL
+            </Chip>
+            <Chip>
+              <SiMongodb /> MongoDB
+            </Chip>
           </div>
         </motion.div>
 
@@ -149,16 +180,22 @@ export default function AboutPage() {
           className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg"
         >
           <h4 className="font-bold text-slate-900">QA Automation & CI/CD</h4>
-          <p className="mt-1 text-sm text-slate-600">Playwright, ReadyAPI, pipelines</p>
+          <p className="mt-1 text-sm text-slate-600">
+            Playwright, ReadyAPI, pipelines
+          </p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <Chip><SiGithubactions /> CI/CD</Chip>
-            <Chip><GitBranch size={16}/> Pipelines</Chip>
+            <Chip>
+              <SiGithubactions /> CI/CD
+            </Chip>
+            <Chip>
+              <GitBranch size={16} /> Pipelines
+            </Chip>
           </div>
         </motion.div>
       </div>
 
       {/* ---------- TIMELINE ---------- */}
-    <Timeline/>
+      <Timeline />
 
       {/* ---------- COUNTERS ---------- */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center mb-32">
@@ -166,7 +203,7 @@ export default function AboutPage() {
           { label: "Projects", value: 20 },
           { label: "Years Experience", value: 3 },
           { label: "Technologies", value: 10 },
-          { label: "Teams Collaborated", value: 5 }
+          { label: "Teams Collaborated", value: 5 },
         ].map((s, i) => (
           <motion.div
             key={i}
@@ -186,9 +223,18 @@ export default function AboutPage() {
       {/* ---------- VALUES ---------- */}
       <div className="grid md:grid-cols-3 gap-6 mb-32">
         {[
-          { title: "Do work that inspires", desc: "I strive to deliver impactful software that raises the bar for teams." },
-          { title: "Collaboration over ego", desc: "Strong teams build strong products — I value open communication & growth." },
-          { title: "Raise the bar", desc: "Constantly improving systems, quality, and developer experience." }
+          {
+            title: "Do work that inspires",
+            desc: "I strive to deliver impactful software that raises the bar for teams.",
+          },
+          {
+            title: "Collaboration over ego",
+            desc: "Strong teams build strong products — I value open communication & growth.",
+          },
+          {
+            title: "Raise the bar",
+            desc: "Constantly improving systems, quality, and developer experience.",
+          },
         ].map((v, i) => (
           <motion.div
             key={i}
@@ -232,4 +278,3 @@ export default function AboutPage() {
     </section>
   );
 }
- 

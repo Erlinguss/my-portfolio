@@ -6,14 +6,14 @@ import ContactForm from "./ContactForm";
 
 type Props = {
   className?: string;
-  children?: React.ReactNode; 
-  href?: string;              
+  children?: React.ReactNode;
+  href?: string;
 };
 
 export default function ContactLink({
   className,
   children = "Contact",
-  href = "#contact",         
+  href = "#contact",
 }: Props) {
   const [open, setOpen] = useState(false);
 
@@ -23,7 +23,7 @@ export default function ContactLink({
       <a
         href={href}
         className={className}
-        role="button"               
+        role="button"
         aria-haspopup="dialog"
         aria-controls="contact-dialog"
         onClick={(e) => {

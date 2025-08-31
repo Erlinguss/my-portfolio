@@ -1,4 +1,3 @@
-// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -8,7 +7,7 @@ type Body = {
   name?: string;
   email?: string;
   message?: string;
-  company?: string; 
+  company?: string;
 };
 
 export async function POST(req: Request) {
@@ -26,7 +25,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true }, { status: 204 });
     }
     if (name.length < 2 || !email.includes("@") || message.length < 10) {
-      return NextResponse.json({ ok: false, error: "Invalid input" }, { status: 400 });
+      return NextResponse.json(
+        { ok: false, error: "Invalid input" },
+        { status: 400 }
+      );
     }
 
     // env checks (useful to avoid 500 mystery)
@@ -34,7 +36,10 @@ export async function POST(req: Request) {
     const TO = process.env.CONTACT_TO;
     const KEY = process.env.RESEND_API_KEY;
     if (!FROM || !TO || !KEY) {
-      return NextResponse.json({ ok: false, error: "Missing email configuration" }, { status: 500 });
+      return NextResponse.json(
+        { ok: false, error: "Missing email configuration" },
+        { status: 500 }
+      );
     }
 
     await resend.emails.send({
@@ -59,7 +64,10 @@ export async function POST(req: Request) {
     } else {
       console.error("Contact error:", err);
     }
-    return NextResponse.json({ ok: false, error: "Failed to send message" }, { status: 500 });
+    return NextResponse.json(
+      { ok: false, error: "Failed to send message" },
+      { status: 500 }
+    );
   }
 }
 

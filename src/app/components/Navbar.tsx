@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FaLinkedin } from "react-icons/fa";
 
 const links = [
@@ -10,7 +10,6 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Skills", href: "/#skills" },
-
 ];
 
 export default function Navbar() {
@@ -18,6 +17,7 @@ export default function Navbar() {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   // close on ESC / outside click
   useEffect(() => {
@@ -43,10 +43,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // helper for active state (pathname doesn't include hash)
-  const isActive = (href: string) => {
-    if (href === "/#skills") return pathname === "/";
-    return pathname === href;
+  const isActive = (href: string) => pathname === href;
+
+  // Handle Skills click
+  const goToSkills = () => {
+    if (pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        const el = document.getElementById("skills");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, "", "/");
+      }, 400);
+    } else {
+      const el = document.getElementById("skills");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, "", "/");
+    }
   };
 
   return (
@@ -64,8 +76,12 @@ export default function Navbar() {
               : "bg-white/80 backdrop-blur border-slate-200 py-3"
           } px-5`}
         >
-          {/* Logo -> Go home */}
-          <Link href="/" aria-label="Go to Home" className="flex items-center gap-2">
+          {/* Logo */}
+          <Link
+            href="/"
+            aria-label="Go to Home"
+            className="flex items-center gap-2"
+          >
             <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold text-lg shadow-md">
               EM
             </div>
@@ -75,14 +91,25 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
             {links.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`transition-colors ${
-                    isActive(link.href) ? "text-slate-900" : "text-slate-600 hover:text-slate-900"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                {link.label === "Skills" ? (
+                  <button
+                    onClick={goToSkills}
+                    className="transition-colors text-slate-600 hover:text-slate-900"
+                  >
+                    {link.label}
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className={`transition-colors ${
+                      isActive(link.href)
+                        ? "text-slate-900 font-semibold"
+                        : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -106,8 +133,18 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               onClick={() => setOpen((v) => !v)}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 7h16M4 12h16M4 17h16"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
               </svg>
             </button>
           </div>
@@ -123,15 +160,29 @@ export default function Navbar() {
             <ul className="flex flex-col py-2 text-slate-700">
               {links.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className={`block px-5 py-3 hover:bg-slate-50 ${
-                      isActive(link.href) ? "text-slate-900" : "text-slate-700"
-                    }`}
-                    onClick={() => setOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
+                  {link.label === "Skills" ? (
+                    <button
+                      onClick={() => {
+                        goToSkills();
+                        setOpen(false);
+                      }}
+                      className="block w-full text-left px-5 py-3 hover:bg-slate-50"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={`block px-5 py-3 hover:bg-slate-50 ${
+                        isActive(link.href)
+                          ? "text-slate-900 font-semibold"
+                          : "text-slate-700"
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

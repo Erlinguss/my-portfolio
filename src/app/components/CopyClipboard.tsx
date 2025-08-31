@@ -5,12 +5,16 @@ import { FiCopy, FiCheck } from "react-icons/fi";
 import toast from "react-hot-toast";
 
 type Props = {
-  value: string;         
-  className?: string;    
-  size?: number;         
+  value: string;
+  className?: string;
+  size?: number;
 };
 
-export default function CopyClipboard({ value, className = "", size = 16 }: Props) {
+export default function CopyClipboard({
+  value,
+  className = "",
+  size = 16,
+}: Props) {
   const [copied, setCopied] = useState(false);
 
   async function copy() {
@@ -52,7 +56,11 @@ export default function CopyClipboard({ value, className = "", size = 16 }: Prop
       }
       aria-label={copied ? "Copied!" : "Copy to clipboard"}
     >
-      {copied ? <FiCheck size={size} className="text-emerald-400" /> : <FiCopy size={size} />}
+      {copied ? (
+        <FiCheck size={size} className="text-emerald-400" />
+      ) : (
+        <FiCopy size={size} />
+      )}
     </button>
   );
 }

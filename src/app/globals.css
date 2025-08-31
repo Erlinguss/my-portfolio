@@ -1,27 +1,40 @@
 @import "tailwindcss";
 
 /* ===================== Base ===================== */
-:root { --foreground:#0f172a; } /* slate-900 */
-body { color: var(--foreground); }
-html { scroll-behavior:smooth; }
+:root {
+  --foreground: #0f172a;
+} /* slate-900 */
+body {
+  color: var(--foreground);
+}
+html {
+  scroll-behavior: smooth;
+}
 
 /* Focus outlines */
 :focus-visible {
-  outline: 2px solid #2563eb; /* blue-600 */
+  outline: 2px solid #2563eb;
   outline-offset: 2px;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* ===================== Orbit Chip ===================== */
 
-/* If you already have this, keep it */
 @keyframes float-slow {
-  0%, 100% { transform: translate3d(0,0,0); }
-  50%      { transform: translate3d(0,-6px,0); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
 }
 
 /* Tiny orbit chips */
@@ -30,48 +43,69 @@ html { scroll-behavior:smooth; }
   /* belt & suspenders: declare animation here too */
   animation: float-slow 5.5s ease-in-out infinite;
   will-change: transform;
-  transform: translate3d(0,0,0); /* ensure GPU layer */
+  transform: translate3d(0, 0, 0); /* ensure GPU layer */
   z-index: 1;
 }
 
 /* inner visual */
 .orbit-chip-inner {
-  display: flex; align-items: center; justify-content: center;
-  width: 44px; height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   border-radius: 9999px;
-  background: rgba(255,255,255,.9);
-  border: 1px solid rgba(15,23,42,.08);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
   box-shadow:
-    0 12px 24px rgba(2,6,23,.10),
-    0 4px 10px rgba(2,6,23,.06);
+    0 12px 24px rgba(2, 6, 23, 0.1),
+    0 4px 10px rgba(2, 6, 23, 0.06);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   will-change: transform;
 }
 
 @media (min-width: 768px) {
-  .orbit-chip-inner { width: 52px; height: 52px; }
+  .orbit-chip-inner {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .orbit-chip { animation: none !important; }
+  .orbit-chip {
+    animation: none !important;
+  }
 }
 
 @keyframes float-slow {
-  0%   { transform: translate3d( 0px,  0px, 0); }
-  25%  { transform: translate3d( 4px, -5px, 0); }
-  50%  { transform: translate3d(-3px,  3px, 0); }
-  75%  { transform: translate3d( 3px,  2px, 0); }
-  100% { transform: translate3d( 0px,  0px, 0); }
+  0% {
+    transform: translate3d(0px, 0px, 0);
+  }
+  25% {
+    transform: translate3d(4px, -5px, 0);
+  }
+  50% {
+    transform: translate3d(-3px, 3px, 0);
+  }
+  75% {
+    transform: translate3d(3px, 2px, 0);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0);
+  }
 }
-
 
 /* ============= Web Developer Title ================== */
 
 @keyframes shine {
-  from { background-position: 200% center; }
-  to   { background-position: -200% center; }
+  from {
+    background-position: 200% center;
+  }
+  to {
+    background-position: -200% center;
+  }
 }
 
 .shimmer {
@@ -83,17 +117,25 @@ html { scroll-behavior:smooth; }
   animation: shine 2s linear infinite;
 }
 
-
-
 /* hide horizontal scrollbar for the carousel */
 .hide-scrollbar {
-  -ms-overflow-style: none;      /* IE/Edge */
-  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
 }
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;                 /* Chrome/Safari */
+  display: none; /* Chrome/Safari */
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Hide Next.js dev badge (bottom-right circle "N") */
+[data-next-badge],
+#__next-build-indicator,
+#__next-build-watcher {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

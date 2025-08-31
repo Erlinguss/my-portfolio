@@ -20,21 +20,17 @@ export default function Footer() {
           <div className="grid gap-10 md:grid-cols-2">
             {/* LEFT — headline + contact */}
             <section aria-labelledby="footer-title">
-              {/* <h2
+              <h2
                 id="footer-title"
-                className="text-3xl sm:text-4xl font-extrabold tracking-tight text-blue-400"
+                className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-100"
               >
-                Let’s build reliable, scalable apps
-              </h2> */}
+                Let’s build{" "}
+                <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+                  reliable, scalable apps
+                </span>
+              </h2>
 
-<h2
-  id="footer-title"
-  className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-100"
->
-  Let’s build <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">reliable, scalable apps</span>
-</h2>
-
-              <p className="mt-3 text-slate-400 max-w-[46ch]">
+              <p className="mt-3 text-slate-400 max-w-full sm:max-w-[46ch]">
                 Full-stack developer with strong QA automation background.
                 Focused on building clean code, scalable systems, and delivering
                 real business value.
@@ -76,7 +72,9 @@ export default function Footer() {
 
                     <div className="min-w-0">
                       <div className="text-sm text-slate-300">Location</div>
-                      <div className="text-slate-100 font-semibold">Ireland</div>
+                      <div className="text-slate-100 font-semibold">
+                        Ireland
+                      </div>
                     </div>
                   </div>
                   {/* right side empty to keep layout symmetry */}
@@ -86,29 +84,40 @@ export default function Footer() {
             </section>
 
             {/* RIGHT — services + links */}
-            <section className="grid grid-cols-2 gap-8">
+            <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-sm font-bold text-slate-300">Quick Links</h3>
+                <h3 className="text-sm font-bold text-slate-300">
+                  Quick Links
+                </h3>
                 <ul className="mt-3 space-y-2 text-sm">
                   <li>
-                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="/about">
+                    <Link
+                      className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded"
+                      href="/about"
+                    >
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="/projects">
+                    <Link
+                      className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded"
+                      href="/projects"
+                    >
                       Projects
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded" href="/#skills">
+                    <Link
+                      className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded"
+                      href="/#skills"
+                    >
                       Skills
                     </Link>
                   </li>
                   <li>
                     <a
                       className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded"
-                         href="/ErlingEduardoMunguiaUrbinaCV.pdf"
+                      href="/ErlingEduardoMunguiaUrbinaCV.pdf"
                     >
                       Download CV
                     </a>
@@ -125,11 +134,21 @@ export default function Footer() {
               <div>
                 <h3 className="text-sm font-bold text-slate-300">Services</h3>
                 <ul className="mt-3 space-y-2 text-sm">
-                  <li className="text-slate-400 hover:text-white">Full-Stack Development</li>
-                  <li className="text-slate-400 hover:text-white">API Design &amp; Testing</li>
-                  <li className="text-slate-400 hover:text-white">Databases &amp; Data Modeling</li>
-                  <li className="text-slate-400 hover:text-white">Automation &amp; CI/CD</li>
-                  <li className="text-slate-400 hover:text-white">Agile &amp; Collaboration</li>
+                  <li className="text-slate-400 hover:text-white">
+                    Full-Stack Development
+                  </li>
+                  <li className="text-slate-400 hover:text-white">
+                    API Design &amp; Testing
+                  </li>
+                  <li className="text-slate-400 hover:text-white">
+                    Databases &amp; Data Modeling
+                  </li>
+                  <li className="text-slate-400 hover:text-white">
+                    Automation &amp; CI/CD
+                  </li>
+                  <li className="text-slate-400 hover:text-white">
+                    Agile &amp; Collaboration
+                  </li>
                 </ul>
 
                 {/* Socials */}
@@ -171,7 +190,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 hover:bg-white/[0.08] text-slate-200 text-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
               aria-label="Back to top"
             >
-              ↑ 
+              ↑
             </a>
           </div>
         </div>

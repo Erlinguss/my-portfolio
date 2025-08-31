@@ -13,10 +13,16 @@ export const metadata: Metadata = {
     "Portfolio of Erling Munguia: Software Developer & Automation Engineer.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}>
+      <body
+        className={`${inter.className} bg-slate-50 text-slate-900 antialiased`}
+      >
         <Navbar />
         {children}
         <Toaster position="top-right" toastOptions={{ duration: 2500 }} />

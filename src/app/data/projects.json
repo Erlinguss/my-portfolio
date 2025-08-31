@@ -5,7 +5,7 @@
       "description": "A modern developer portfolio built with Next.js, TailwindCSS, and Framer Motion. Integrated with MongoDB for dynamic content like timeline and projects.",
       "stack": ["Next.js", "TailwindCSS", "Framer Motion", "MongoDB"],
       "github": "https://github.com/Erlinguss/portfolio",
-      "live": "https://yourportfolio.vercel.app/",
+      "live": "https://erlingmunguia.com/",
       "image": "/projects/portfolio.png"
     },
     {
@@ -46,4 +46,3 @@
     }
   ]
 }
-

@@ -13,7 +13,12 @@ export default function AboutAnimation() {
     h: number;
     nm: string;
     ddd: number;
-    assets: { id: string; type?: string; src?: string; [key: string]: unknown }[];
+    assets: {
+      id: string;
+      type?: string;
+      src?: string;
+      [key: string]: unknown;
+    }[];
     layers: {
       ty: number;
       nm: string;
@@ -21,7 +26,9 @@ export default function AboutAnimation() {
     }[];
   }
 
-  const [animationData, setAnimationData] = useState<AnimationData | null>(null);
+  const [animationData, setAnimationData] = useState<AnimationData | null>(
+    null
+  );
 
   // fetch JSON directly from /public/Animations
   useEffect(() => {
@@ -30,7 +37,7 @@ export default function AboutAnimation() {
       .then((data) => setAnimationData(data));
   }, []);
 
-  if (!animationData) return null; 
+  if (!animationData) return null;
 
   return (
     <div className="flex justify-center items-center">

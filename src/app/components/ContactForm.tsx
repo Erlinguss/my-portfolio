@@ -1,10 +1,11 @@
-
 "use client";
 
 import { useState } from "react";
 
 export default function ContactForm() {
-  const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [state, setState] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
   const [error, setError] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -13,7 +14,10 @@ export default function ContactForm() {
     setState("sending");
 
     const form = e.currentTarget;
-    const payload = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    const payload = Object.fromEntries(new FormData(form)) as Record<
+      string,
+      string
+    >;
 
     try {
       const res = await fetch("/api/contact", {
@@ -22,7 +26,8 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       });
       const json = await res.json().catch(() => ({}));
-      if (!res.ok || json.ok === false) throw new Error(json.error || "Failed to send message.");
+      if (!res.ok || json.ok === false)
+        throw new Error(json.error || "Failed to send message.");
       setState("sent");
       form.reset();
     } catch (err: unknown) {
@@ -36,11 +41,17 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5 bg-slate-900 text-white p-6 rounded-xl shadow-lg">
+    <form
+      onSubmit={onSubmit}
+      className="space-y-5 bg-slate-900 text-white p-6 rounded-xl shadow-lg"
+    >
       <div>
         <label className="block text-sm font-semibold mb-1">Name</label>
         <input
-          name="name" required minLength={2} maxLength={80}
+          name="name"
+          required
+          minLength={2}
+          maxLength={80}
           className="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           placeholder="Your name"
         />
@@ -49,7 +60,9 @@ export default function ContactForm() {
       <div>
         <label className="block text-sm font-semibold mb-1">Email</label>
         <input
-          name="email" type="email" required
+          name="email"
+          type="email"
+          required
           className="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           placeholder="you@company.com"
         />
@@ -58,14 +71,25 @@ export default function ContactForm() {
       <div>
         <label className="block text-sm font-semibold mb-1">Message</label>
         <textarea
-          name="message" required minLength={10} maxLength={3000} rows={6}
+          name="message"
+          required
+          minLength={10}
+          maxLength={3000}
+          rows={6}
           className="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-white placeholder-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
           placeholder="Tell me about your role/project and how I can help…"
         />
       </div>
 
       {/* Honeypot */}
-      <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
 
       {state === "sent" && (
         <div className="rounded-lg bg-green-600/20 border border-green-500 text-green-300 px-4 py-2 text-sm">

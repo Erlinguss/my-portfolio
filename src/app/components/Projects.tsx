@@ -15,7 +15,15 @@ interface Project {
   live?: string | null;
 }
 
-function ProjectCard({ project, i }: { project: Project; i: number }) {
+function ProjectCard({
+  project,
+  i,
+  type,
+}: {
+  project: Project;
+  i: number;
+  type: "featured" | "collaboration";
+}) {
   const [open, setOpen] = useState(false);
 
   // ESC key + lock/unlock body scroll
@@ -42,46 +50,54 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
       <motion.div
         key={i}
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }} // ensures render immediately
-        whileInView={{ opacity: 1, y: 0 }} // still animates on scroll
+        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: i * 0.1, duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.1 }} // triggers if already in view
+        viewport={{ once: false, amount: 0.1 }}
         className="rounded-2xl border border-slate-200 bg-white shadow-lg 
-                   hover:shadow-2xl hover:-translate-y-2 transition p-6 flex flex-col"
+                  hover:shadow-2xl hover:-translate-y-2 transition p-6 
+                  flex flex-col min-h-[520px]"
       >
         {/* Image trigger */}
         {project.image && (
           <div
             onClick={() => setOpen(true)}
-            className="w-full flex justify-center items-center bg-white rounded-xl mb-4 overflow-hidden cursor-pointer"
+            className={`w-full flex justify-center items-center rounded-xl mb-4 overflow-hidden cursor-pointer
+              ${type === "featured" ? "aspect-[16/9] bg-white" : "h-72 bg-slate-50"}`}
           >
             <img
               src={project.image}
               alt={project.title}
-              className="max-h-72 object-contain transition-transform duration-300 hover:scale-105"
+              className={`w-full h-full transition-transform duration-300 hover:scale-105
+                ${type === "featured" ? "object-cover" : "object-contain"}`}
             />
           </div>
         )}
 
-        {/* Title + Description */}
-        <h3 className="text-xl font-bold text-slate-900">{project.title}</h3>
-        <p className="text-sm text-slate-600 mt-2">{project.description}</p>
-        {project.collaboration && (
-          <p className="text-xs text-slate-500 mt-1 italic">
-            {project.collaboration}
-          </p>
-        )}
+        {/* Content (title, description, stack) */}
+        <div className="flex flex-col flex-grow">
+          <h3 className="text-xl font-bold text-slate-900">{project.title}</h3>
+          <p className="text-sm text-slate-600 mt-2">{project.description}</p>
+          {project.collaboration && (
+            <p className="text-xs text-slate-500 mt-1 italic">
+              {project.collaboration}
+            </p>
+          )}
 
-        {/* Stack */}
-        <div className="flex flex-wrap gap-2 mt-4">
-          {project.stack.map((tech: string, idx: number) => (
-            <span
-              key={idx}
-              className="px-2 py-1 text-xs font-medium rounded-md bg-slate-100 text-slate-700"
-            >
-              {tech}
-            </span>
-          ))}
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-2 mt-4">
+            {project.stack.map((tech: string, idx: number) => (
+              <span
+                key={idx}
+                className="px-2 py-1 text-xs font-medium rounded-md bg-slate-100 text-slate-700"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Spacer pushes buttons down */}
+          <div className="flex-grow" />
         </div>
 
         {/* Action Buttons */}
@@ -92,26 +108,22 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3 py-2 rounded-lg 
-                         bg-slate-900 text-white text-sm font-semibold hover:bg-slate-700 transition"
+                        bg-slate-900 text-white text-sm font-semibold hover:bg-slate-700 transition"
             >
               <Github size={16} /> Code
             </a>
           )}
-          {project.live ? (
+          {project.live && (
             <a
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-3 py-2 rounded-lg 
-                         bg-gradient-to-r from-indigo-600 to-purple-600 text-white 
-                         text-sm font-semibold hover:scale-105 transition"
+                        bg-gradient-to-r from-indigo-600 to-purple-600 text-white 
+                        text-sm font-semibold hover:scale-105 transition"
             >
               <Globe size={16} /> Live
             </a>
-          ) : (
-            <span className="px-3 py-2 rounded-lg border text-xs text-slate-400 border-slate-200">
-              Demo coming soon
-            </span>
           )}
         </div>
       </motion.div>
@@ -122,7 +134,6 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
           className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={(e) => e.target === e.currentTarget && setOpen(false)}
         >
-          {/* Animated image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -134,7 +145,7 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
               src={project.image}
               alt={project.title}
               className="max-h-[80vh] max-w-[80vw] w-auto h-auto 
-                         object-contain rounded-lg shadow-lg"
+                        object-contain rounded-lg shadow-lg"
             />
           </motion.div>
 
@@ -146,8 +157,8 @@ function ProjectCard({ project, i }: { project: Project; i: number }) {
             onClick={() => setOpen(false)}
             title="Close"
             className="fixed top-6 right-6 flex items-center justify-center 
-                       w-10 h-10 text-white bg-black/70 rounded-full 
-                       hover:bg-black/90 transition shadow-lg z-[1010]"
+                      w-10 h-10 text-white bg-black/70 rounded-full 
+                      hover:bg-black/90 transition shadow-lg z-[1010]"
           >
             <X size={22} />
           </motion.button>
@@ -161,14 +172,14 @@ export default function Projects() {
   return (
     <motion.section
       initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }} // ensures section appears
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
       className="mb-32"
     >
       {/* Featured Projects */}
       <div className="grid md:grid-cols-3 gap-8 mb-24">
         {projects.featured.map((p, i) => (
-          <ProjectCard key={i} project={p} i={i} />
+          <ProjectCard key={i} project={p} i={i} type="featured" />
         ))}
       </div>
 
@@ -182,7 +193,7 @@ export default function Projects() {
       </p>
       <div className="grid md:grid-cols-2 gap-8">
         {projects.collaborations.map((p, i) => (
-          <ProjectCard key={i} project={p} i={i} />
+          <ProjectCard key={i} project={p} i={i} type="collaboration" />
         ))}
       </div>
 
@@ -196,7 +207,7 @@ export default function Projects() {
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-6 py-3 
-                     text-sm font-semibold text-white shadow-lg hover:bg-slate-700 transition"
+                    text-sm font-semibold text-white shadow-lg hover:bg-slate-700 transition"
         >
           View More on GitHub
         </a>
