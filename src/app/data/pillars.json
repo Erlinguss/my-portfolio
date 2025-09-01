@@ -1,0 +1,91 @@
+[
+  {
+    "title": "Frontend Development",
+    "blurb": "Crafting responsive, accessible, and performance-driven interfaces.",
+    "badges": [
+      { "icon": "nextjs", "label": "Next.js" },
+      { "icon": "react", "label": "React" },
+      { "icon": "typescript", "label": "TypeScript" },
+      { "icon": "tailwind", "label": "TailwindCSS" },
+      { "icon": "javascript", "label": "JavaScript" }
+    ],
+    "bullets": [
+      "Delivered interfaces optimized for Core Web Vitals.",
+      "Built responsive, reusable design systems.",
+      "Developed SPAs with React & Next.js.",
+      "Ensured WCAG-compliant accessibility.",
+      "Integrated state management & API hooks."
+    ]
+  },
+  {
+    "title": "Backend & APIs",
+    "blurb": "Engineering secure, scalable, and maintainable backend systems.",
+    "badges": [
+      { "icon": "node", "label": "Node.js" },
+      { "icon": "java", "label": "Java" },
+      { "icon": "mongodb", "label": "MongoDB" },
+      { "icon": "mysql", "label": "MySQL" },
+      { "icon": "api", "label": "Rest API" },
+      { "icon": "csharp", "label": "CSharp" }
+    ],
+    "bullets": [
+      "Designed REST APIs with authentication layers.",
+      "Built scalable CRUD & pagination logic.",
+      "Implemented JWT & session auth.",
+      "Schema design for SQL & NoSQL DBs.",
+      "Optimized performance for high traffic."
+    ]
+  },
+  {
+    "title": "QA Automation & DevOps",
+    "blurb": "Driving quality and speed through automated testing and CI/CD pipelines.",
+    "badges": [
+      { "icon": "postman", "label": "Postman" },
+      { "icon": "playwright", "label": "Playwright" },
+      { "icon": "docker", "label": "Docker" },
+      { "icon": "azuredev", "label": "Azure DevOps" },
+      { "icon": "github", "label": "GitHub" },
+      { "icon": "jira", "label": "Jira" },
+      { "icon": "readyapi", "label": "ReadyAPI" }
+    ],
+    "bullets": [
+      "Built UI/API automation test suites.",
+      "Set up CI checks & delivery pipelines.",
+      "Maintained dev/prod parity with Docker.",
+      "Automated regression & smoke tests.",
+      "Deployed monitoring with alerts."
+    ]
+  },
+  {
+    "title": "Mobile Development",
+    "blurb": "Building smooth, performant apps for iOS and cross-platform environments.",
+    "badges": [
+      { "icon": "swift", "label": "Swift" },
+      { "icon": "xcode", "label": "Xcode" }
+    ],
+    "bullets": [
+      "Developed native iOS apps with Swift & SwiftUI.",
+      "Integrated REST APIs, persistence, and offline storage.",
+      "Implemented secure auth, deep links & push notifications.",
+      "Used Xcode Instruments to profile & tune performance.",
+      "Automated build/signing steps and TestFlight distribution."
+    ]
+  },
+  {
+    "title": "UX/UI Design",
+    "blurb": "Designing intuitive experiences with clean layouts and motion.",
+    "badges": [
+      { "icon": "figma", "label": "Figma" },
+      { "icon": "framer", "label": "Framer" },
+      { "icon": "storybook", "label": "Storybook" },
+      { "icon": "design-tokens", "label": "Design Tokens" }
+    ],
+    "bullets": [
+      "Designed wireframes and prototypes with Figma.",
+      "Created reusable design systems in Storybook.",
+      "Developed UX flows & interaction patterns.",
+      "Applied accessibility & WCAG compliance.",
+      "Produced micro-animations with Framer."
+    ]
+  }
+]

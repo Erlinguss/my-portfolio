@@ -1,26 +1,144 @@
 @import "tailwindcss";
 
+/* ===================== Base ===================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+} /* slate-900 */
+body {
+  color: var(--foreground);
+}
+html {
+  scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Focus outlines */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ===================== Orbit Chip ===================== */
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+/* Tiny orbit chips */
+.orbit-chip {
+  position: absolute;
+  /* belt & suspenders: declare animation here too */
+  animation: float-slow 5.5s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* ensure GPU layer */
+  z-index: 1;
+}
+
+/* inner visual */
+.orbit-chip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow:
+    0 12px 24px rgba(2, 6, 23, 0.1),
+    0 4px 10px rgba(2, 6, 23, 0.06);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .orbit-chip-inner {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .orbit-chip {
+    animation: none !important;
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate3d(0px, 0px, 0);
+  }
+  25% {
+    transform: translate3d(4px, -5px, 0);
+  }
+  50% {
+    transform: translate3d(-3px, 3px, 0);
+  }
+  75% {
+    transform: translate3d(3px, 2px, 0);
+  }
+  100% {
+    transform: translate3d(0px, 0px, 0);
+  }
+}
+
+/* ============= Web Developer Title ================== */
+
+@keyframes shine {
+  from {
+    background-position: 200% center;
+  }
+  to {
+    background-position: -200% center;
+  }
+}
+
+.shimmer {
+  background-size: 200% auto;
+  transition: background-position 0.3s ease;
+}
+
+.shimmer:hover {
+  animation: shine 2s linear infinite;
+}
+
+/* hide horizontal scrollbar for the carousel */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide Next.js Turbopack badge */
+[data-nextjs-dialog-overlay],
+[data-nextjs-toast],
+[data-nextjs-turbopack-overlay],
+#__next-build-watcher,
+#__next-build-indicator,
+[data-next-badge] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

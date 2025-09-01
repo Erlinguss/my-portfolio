@@ -1,0 +1,48 @@
+{
+  "featured": [
+    {
+      "title": "Portfolio Website",
+      "description": "A modern developer portfolio built with Next.js, TailwindCSS, and Framer Motion. Integrated with MongoDB for dynamic content like timeline and projects.",
+      "stack": ["Next.js", "TailwindCSS", "Framer Motion", "MongoDB"],
+      "github": "https://github.com/Erlinguss/portfolio",
+      "live": "https://erlingmunguia.com/",
+      "image": "/projects/portfolio.png"
+    },
+    {
+      "title": "Education Course Management API",
+      "description": "A scalable backend API to manage courses, instructors, and schedules. Secure role-based authentication with JWT, deployed to Azure with MySQL integration.",
+      "stack": ["C#", ".NET 8", "Azure", "MySQL", "Swagger"],
+      "github": "https://github.com/Erlinguss/EduCourseManagementAPI",
+      "live": null,
+      "image": "/projects/edumanagement.png"
+    },
+    {
+      "title": "MoodSync – Wellness Assistant",
+      "description": "A personalized mental wellness & lifestyle assistant app. Integrates Google Maps, Weather APIs, and Geolocation. Includes Playwright automation tests.",
+      "stack": ["C#", ".NET", "Entity Framework", "MySQL", "Playwright"],
+      "github": "https://github.com/Erlinguss/SOA_CA1_MoodSync",
+      "live": null,
+      "image": "/projects/mood.png"
+    }
+  ],
+  "collaborations": [
+    {
+      "title": "UpFlux – UX/UI Design",
+      "description": "Contributed to the design of the UpFlux update management platform. Created Figma prototypes and UX flows for dashboards, login pages, and management modules.",
+      "stack": ["Figma", "UX", "UI Design"],
+      "github": null,
+      "live": "https://www.figma.com/proto/w9J7IfU3aSA6u3LEoCi4ca/Upflux?node-id=972-2474&starting-point-node-id=972%3A2474&t=xMWJG8yJiY9FOl60-1",
+      "image": "/projects/figma.png",
+      "collaboration": "Collaborative project • Role: UX/UI Designer"
+    },
+    {
+      "title": "UpFlux – QA Automation",
+      "description": "Developed automated tests for the UpFlux platform using Postman for backend API testing and Playwright in C# for frontend validation. Focused on authentication, access control, and reliability.",
+      "stack": ["C#", ".NET 7", "Postman", "Playwright", "Visual Studio"],
+      "github": "https://github.com/UpFlux-By-Zenith/UpFlux-Automation-Testing",
+      "live": null,
+      "image": "/projects/upflux.png",
+      "collaboration": "Collaborative project • Role: QA Automation Engineer"
+    }
+  ]
+}
