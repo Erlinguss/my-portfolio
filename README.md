@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Erling Personal Portfolio
 
-## Getting Started
+Welcome to my personal portfolio repository!  
+This site was built to showcase my **skills, projects, and professional journey** in a clean, modern, and interactive way.  
+It reflects my technical expertise as well as my **creativity, attention to detail, and passion for problem-solving**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 👋 About Me
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Hi, I’m **Erling Munguia** — a developer with a background in **computing, software development**.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I’m passionate about **building clean, scalable, and user-friendly applications**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+💡 Alongside my technical expertise, I bring strong **problem-solving, communication, and teamwork skills**, shaped by both academic research and collaborative software projects.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+##  Features of This Portfolio
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Built with Next.js 14 + TypeScript** — fast, scalable, SEO-ready  
+- **Responsive UI** — optimized for mobile, tablet, and desktop  
+- **TailwindCSS styling** — modern, utility-first CSS  
+- **Framer Motion animations** — smooth transitions and hover effects  
+- **Interactive Carousel** — gradient edges + navigation arrows  
+- **JSON-driven data** — projects, skills, and pillars stored in `/data`  
+- **Dynamic project cards** — expandable with GitHub/live demo links  
+- **Downloadable CV** — recruiter-ready PDF directly from the site  
+- **Custom tech icons** — React Icons + bespoke SVG connectors  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/)  
+- [React](https://reactjs.org/)  
+- [TypeScript](https://www.typescriptlang.org/)  
+- [TailwindCSS](https://tailwindcss.com/)  
+- [Framer Motion](https://www.framer.com/motion/)  
+- [React Icons](https://react-icons.github.io/react-icons/)  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🎯 Why This Portfolio?
+
+This project isn’t just about code — it’s about **presenting myself as a professional developer**:  
+
+- 🖼️ Clean, modern design with interactive features to engage visitors  
+- 📑 Clear structure for recruiters to find skills, experience, and CV quickly  
+- 🧩 Modular and maintainable code demonstrating best practices  
+- 🚀 A showcase of both **frontend development skills** and an eye for **UX/UI**  
+
+---
+
+## 👤 Author
+
+**Erling Munguia**  
+
+
+---
+
+📌 *Thank you for visiting my portfolio repository! I’d love to connect and discuss how I can bring value to your team.*
