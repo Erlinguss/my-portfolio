@@ -16,9 +16,9 @@ import {
 import { Mail, Download, GitBranch } from "lucide-react";
 import CountUp from "react-countup";
 import Lottie from "react-lottie-player";
-import codingAnimation from "@/../public/animations/coding.json";
 import Timeline from "./Timeline";
 import ContactLink from "./ContactLink";
+import codingAnimation from "../data/coding.json"; 
 
 /* ---------- Reusable Chip ---------- */
 function Chip({ children }: { children: React.ReactNode }) {
@@ -98,7 +98,6 @@ export default function AboutPage() {
             className="relative flex justify-center lg:justify-end"
           >
             {/* Glow under animation */}
-            {/* <div className="absolute w-[650px] h-[650px] rounded-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>*/}
             <div className="absolute w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] lg:w-[650px] lg:h-[650px] rounded-full bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-3xl"></div>
 
             <Lottie
