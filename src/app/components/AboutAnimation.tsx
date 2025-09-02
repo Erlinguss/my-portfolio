@@ -30,9 +30,9 @@ export default function AboutAnimation() {
     null
   );
 
-  // fetch JSON directly from /public/Animations
+  // fetch JSON directly from /public/animations
   useEffect(() => {
-    fetch("/Animations/coding.json")
+    fetch("/data/coding.json")
       .then((res) => res.json())
       .then((data) => setAnimationData(data));
   }, []);
