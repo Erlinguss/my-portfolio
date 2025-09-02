@@ -12,11 +12,18 @@ interface TimelineItem {
 export default function Timeline() {
   const [timeline, setTimeline] = useState<TimelineItem[]>([]);
 
-  useEffect(() => {
-    fetch("/api/timeline")
-      .then((res) => res.json())
-      .then((data) => setTimeline(data));
-  }, []);
+useEffect(() => {
+  fetch("/api/timeline")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Fetched data:", data);
+      setTimeline(Array.isArray(data) ? data : []);
+    })
+    .catch((err) => {
+      console.error("Failed to load timeline:", err);
+      setTimeline([]);
+    });
+}, []);
 
   return (
     <motion.div
