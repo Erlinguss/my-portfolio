@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Github, Globe, X } from "lucide-react";
 import projects from "../data/projects.json";
+import TestResults from "../components/TestResults"; 
 
 interface Project {
   image?: string;
@@ -183,6 +184,8 @@ export default function Projects() {
         ))}
       </div>
 
+   
+
       {/* Collaborations */}
       <h2 className="text-center text-3xl font-bold text-slate-900 mb-6">
         Collaborations
@@ -196,6 +199,9 @@ export default function Projects() {
           <ProjectCard key={i} project={p} i={i} type="collaboration" />
         ))}
       </div>
+
+      {/*Test Results */}
+      <TestResults />
 
       {/* Footer CTA */}
       <div className="text-center mt-20">
