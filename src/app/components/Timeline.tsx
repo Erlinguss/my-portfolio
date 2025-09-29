@@ -46,8 +46,9 @@ useEffect(() => {
             initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
-            className={`relative w-1/2 px-6 py-6 ${
-              i % 2 === 0 ? "pr-12 text-right" : "pl-12 text-left ml-auto"
+
+            className={`relative w-full md:w-1/2 px-6 py-6 ${
+              i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left md:ml-auto"
             }`}
           >
             <div className="absolute top-6 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-indigo-600 border-2 border-white shadow-md" />
