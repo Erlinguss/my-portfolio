@@ -79,7 +79,7 @@ const formatDateTime = (iso?: string) => {
 };
 
 /* ---------- Main ---------- */
-export default function TestResultsDashboard() {
+export default function TestResults() {
   const [dailyResults, setDailyResults] = useState<
     { date: string; tests: TestRun[] }[]
   >([]);
@@ -133,8 +133,7 @@ export default function TestResultsDashboard() {
         }
 
         latestPerDay.sort(
-          (a, b) =>
-            new Date(a.date).getTime() - new Date(b.date).getTime()
+          (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
         );
         setDailyResults(latestPerDay);
         if (latestPerDay.length)
@@ -163,8 +162,7 @@ export default function TestResultsDashboard() {
     return Object.entries(bucketed)
       .map(([date, tests]) => ({ date, tests }))
       .sort(
-        (a, b) =>
-          new Date(a.date).getTime() - new Date(b.date).getTime()
+        (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
       );
   }, [dailyResults, view]);
 
@@ -192,9 +190,7 @@ export default function TestResultsDashboard() {
     const failed = all.filter((t) => t.outcome === "Failed").length;
     const other = all.length - passed - failed;
     const total = passed + failed + other;
-    const passRate = total
-      ? Math.round((passed / total) * 100)
-      : 0;
+    const passRate = total ? Math.round((passed / total) * 100) : 0;
     return { passed, failed, other, total, passRate };
   }, [buckets]);
 
@@ -240,30 +236,14 @@ export default function TestResultsDashboard() {
   );
 
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-6 pt-40 pb-12 space-y-10">
-      {/* Header */}
-      <div className="text-center space-y-3">
-        <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
-          CI/CD Pipeline Dashboard
-        </h2>
-        <p className="text-slate-600 max-w-2xl mx-auto">
-          Automating the{" "}
-          <span className="font-semibold">Portfolio Website</span>. This
-          dashboard showcases an automated{" "}
-          <span className="font-semibold">C# + Playwright</span> test
-          suite running daily on{" "}
-          <span className="font-semibold">GitHub Actions</span>. Results
-          are parsed from each pipeline run and displayed below.
-        </p>
-      </div>
-
-      {/* Sticky Filters with Responsive Fix */}
+    <div className="max-w-7xl mx-auto px-4 md:px-6 pb-12 space-y-10">
+      {/* Sticky Filters */}
       <div
         className={`sticky top-[55px] z-30 bg-white border-b border-slate-200 
         px-4 md:px-6 py-3 flex flex-wrap items-center justify-between gap-3 
         transition-shadow duration-300 rounded-b-xl
         ${scrolled ? "shadow-sm" : ""}`}
-        >
+      >
         {/* Filters */}
         <div className="flex flex-wrap items-center gap-4">
           {/* View buttons */}
@@ -323,38 +303,18 @@ export default function TestResultsDashboard() {
             hover:bg-slate-50 transition w-full sm:w-auto"
         >
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.6-1.4-1.5-1.8-1.5-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 .9 2 .9 1.1 2 2.9 1.4 3.6 1.1.1-.8.4-1.4.7-1.7-2.5-.3-5.1-1.3-5.1-5.7 0-1.2.4-2.2 1-3-.1-.3-.4-1.5.1-3 0 0 .8-.3 2.7 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.9-1.3 2.7-1 2.7-1 .5 1.5.2 2.7.1 3 .7.8 1 1.8 1 3 0 4.4-2.6 5.3-5.1 5.6.4.3.8 1 .8 2.1v3.1c0 .4.2.7.8.6 4.7-1.5 8-5.8 8-10.9C23.5 5.65 18.35.5 12 .5z"/>
+            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.6-1.4-1.5-1.8-1.5-1.8-1.2-.8.1-.8.1-.8 1.3.1 2 .9 2 .9 1.1 2 2.9 1.4 3.6 1.1.1-.8.4-1.4.7-1.7-2.5-.3-5.1-1.3-5.1-5.7 0-1.2.4-2.2 1-3-.1-.3-.4-1.5.1-3 0 0 .8-.3 2.7 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c1.9-1.3 2.7-1 2.7-1 .5 1.5.2 2.7.1 3 .7.8 1 1.8 1 3 0 4.4-2.6 5.3-5.1 5.6.4.3.8 1 .8 2.1v3.1c0 .4.2.7.8.6 4.7-1.5 8-5.8 8-10.9C23.5 5.65 18.35.5 12 .5z" />
           </svg>
-
           View Code
         </a>
       </div>
 
       {/* KPIs */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <KpiCard
-          label="Pass Rate"
-          value={`${summary.passRate}%`}
-          emphasis
-          icon={<Gauge />}
-        />
-        <KpiCard
-          label="Total Executions"
-          value={summary.total.toString()}
-          icon={<ListChecks />}
-        />
-        <KpiCard
-          label="Passed"
-          value={summary.passed.toString()}
-          positive
-          icon={<CheckCircle2 />}
-        />
-        <KpiCard
-          label="Failed"
-          value={summary.failed.toString()}
-          negative
-          icon={<XCircle />}
-        />
+        <KpiCard label="Pass Rate" value={`${summary.passRate}%`} emphasis icon={<Gauge />} />
+        <KpiCard label="Total Executions" value={summary.total.toString()} icon={<ListChecks />} />
+        <KpiCard label="Passed" value={summary.passed.toString()} positive icon={<CheckCircle2 />} />
+        <KpiCard label="Failed" value={summary.failed.toString()} negative icon={<XCircle />} />
       </div>
 
       {/* Charts */}
@@ -429,12 +389,7 @@ export default function TestResultsDashboard() {
       </div>
 
       {/* Table */}
-      <Card
-        title={formatDisplayDate(
-          selectedBucket ?? buckets.at(-1)?.date ?? "",
-          view
-        )}
-      >
+      <Card title={formatDisplayDate(selectedBucket ?? buckets.at(-1)?.date ?? "", view)}>
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse text-sm">
             <thead className="bg-slate-100">
@@ -497,13 +452,7 @@ export default function TestResultsDashboard() {
 }
 
 /* ---------- UI helpers ---------- */
-function Card({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="rounded-xl border border-slate-200 bg-white shadow-sm">
       <header className="px-4 md:px-5 py-3 border-b border-slate-200">
@@ -582,6 +531,7 @@ function Th({ children }: { children: React.ReactNode }) {
 
 function Td({ children }: { children: React.ReactNode }) {
   return (
-    <td className="px-3 md:px-4 py-2 md:py-3 text-slate-700">{children}</td>
+    <td className="px-3 md:px-4 py-2 text-slate-700">{children}</td>
   );
 }
+

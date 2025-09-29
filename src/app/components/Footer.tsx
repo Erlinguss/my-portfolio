@@ -109,9 +109,9 @@ export default function Footer() {
                   <li>
                     <Link
                       className="hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60 rounded"
-                      href="/#skills"
+                      href="/cicd"
                     >
-                      Skills
+                      CI/CD
                     </Link>
                   </li>
                   <li>
