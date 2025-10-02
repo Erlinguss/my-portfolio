@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import LoadingSpinner from "./LoadingSpinner";
 
 type ViewRange = "day" | "week" | "month";
 
@@ -213,8 +214,8 @@ export default function TestResults() {
 
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 text-center text-slate-500 animate-pulse">
-        Loading test results…
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-20">
+        <LoadingSpinner />
       </div>
     );
   }

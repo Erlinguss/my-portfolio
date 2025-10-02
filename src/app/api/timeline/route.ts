@@ -5,7 +5,7 @@ export async function GET() {
   try {
     const client = await clientPromise;
     const db = client.db("portfolio");
-    const timeline = await db.collection("timeline").find({}).toArray();
+    const timeline = await db.collection("timeline").find({}).sort({ yearStart: -1 }).toArray();
     return NextResponse.json(timeline);
   } catch (e) {
     return NextResponse.json(
