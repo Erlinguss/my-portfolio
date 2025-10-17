@@ -119,9 +119,7 @@ export default function TestResults() {
 
         const latestPerDay: { date: string; tests: TestRun[] }[] = [];
         for (const [day, list] of Object.entries(byDay)) {
-          const latest = [...list]
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .pop()!;
+          const latest = [...list].sort((a, b) => a.name.localeCompare(b.name)).pop()!;
           const jsonRes = await fetch(latest.download_url);
           if (!jsonRes.ok) continue;
           const data = await jsonRes.json();
@@ -137,8 +135,7 @@ export default function TestResults() {
           (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
         );
         setDailyResults(latestPerDay);
-        if (latestPerDay.length)
-          setSelectedBucket(latestPerDay.at(-1)!.date);
+        if (latestPerDay.length) setSelectedBucket(latestPerDay.at(-1)!.date);
       } catch (e) {
         console.error(e);
         setDailyResults([]);
@@ -156,9 +153,7 @@ export default function TestResults() {
         view === "week"
           ? toWeekKey(`${date}T00:00:00`)
           : toMonthKey(`${date}T00:00:00`);
-      bucketed[key] = bucketed[key]
-        ? bucketed[key].concat(tests)
-        : [...tests];
+      bucketed[key] = bucketed[key] ? bucketed[key].concat(tests) : [...tests];
     }
     return Object.entries(bucketed)
       .map(([date, tests]) => ({ date, tests }))
@@ -208,6 +203,13 @@ export default function TestResults() {
         };
       }),
     [buckets, view]
+  );
+
+  /* ---------- Limit histogram to last 15 bars ---------- */
+  const MAX_BARS = 15;
+  const histogramDataLimited = useMemo(
+    () => histogramData.slice(-MAX_BARS),
+    [histogramData]
   );
 
   const COLORS = ["#16a34a", "#dc2626", "#6b7280"];
@@ -323,7 +325,7 @@ export default function TestResults() {
         <Card title="Test Volume & Status">
           <div className="h-80">
             <ResponsiveContainer>
-              <BarChart data={histogramData}>
+              <BarChart data={histogramDataLimited}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="dateLabel" />
                 <YAxis />
@@ -531,8 +533,5 @@ function Th({ children }: { children: React.ReactNode }) {
 }
 
 function Td({ children }: { children: React.ReactNode }) {
-  return (
-    <td className="px-3 md:px-4 py-2 text-slate-700">{children}</td>
-  );
+  return <td className="px-3 md:px-4 py-2 text-slate-700">{children}</td>;
 }
-
